@@ -1,0 +1,4 @@
+shutil
+selenium
+pyinstaller
+python-dotenv

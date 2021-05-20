@@ -39,7 +39,7 @@ def create_repo_locally():
     cd_command = f'cd {projects_dir}/{folderName}'
     commands = [
         f'{cd_command} && git init',
-        f'{cd_command} && git remote add origin ssh://git@github.com/{github_username}/{folderName}.git',
+        f'{cd_command} && git remote add origin git@github.com:{github_username}/{folderName}.git',
         f'{cd_command} && touch README.md',
         f'{cd_command} && git add .',
         f'{cd_command} && git commit -m "Initial commit',
