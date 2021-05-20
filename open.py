@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 projects_dir = os.getenv("PROJECTS_DIR")
+
 def welcome_user():
     print(f"""\n=============== Welcome Back, {os.getenv("G_USERNAME")}! =============== \n""")
 
