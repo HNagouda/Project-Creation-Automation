@@ -12,6 +12,7 @@ Built for Windows OS.
 
 > ### Preperation
 Make sure you have a valid and authenticated SSH key for GitHub 
+
 More information can be found here: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 ---
@@ -23,16 +24,15 @@ More information can be found here: https://docs.github.com/en/github/authentica
     git clone "https://github.com/HNagouda/Project-Creation-Automation.git"
     cd Project-Creation-Automation
     pip install -r requirements.txt
-    ```
-2. Open the `.env` file in the cloned repository and enter your credentials
-3. Run the following command from shell:
-    ```bash
     python create_executables.py
     ```
-4. Copy the two files: `create.exe`, `open.exe`, and `.env` into your scripts folder
+2. Open the `.env` file in the cloned repository and enter your credentials
+
+3. Copy the three files; `create.exe`, `open.exe`, and `.env` into your scripts folder
    
-5. Add the scripts folder to your `PATH` environment variables
-The how to can be found here: https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/
+4. Add the scripts folder to your `PATH` environment variables
+
+    The how-to can be found here: https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/
 
 
 > ## Usage
