@@ -28,7 +28,7 @@ More information can be found here: https://docs.github.com/en/github/authentica
     ```bash
     python create_executables.py
     ```
-4. Copy the two files: `create.exe` and `open.exe` into your scripts folder
+4. Copy the two files: `create.exe`, `open.exe`, and `.env` into your scripts folder
    
 5. Add the scripts folder to your `PATH` environment variables
 The how to can be found here: https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/
