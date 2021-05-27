@@ -13,13 +13,15 @@ load_dotenv()
 github_username = os.getenv("G_USERNAME")
 github_password = os.getenv("G_PASSWORD")
 projects_dir = os.getenv("PROJECTS_DIR")
+
 folderName = str(sys.argv[1])
+folderName = folderName.replace(' ', '-')
 
 browser = webdriver.Chrome(ChromeDriverManager().install())
 browser.get('https://github.com/login')
 
 def create_new_dir():
-    os.makedirs(projects_dir + folderName)
+    os.makedirs(os.path.join(projects_dir, folderName))
 
 def create_repo_online():
     python_button = browser.find_elements_by_xpath("//input[@name='login']")[0]
