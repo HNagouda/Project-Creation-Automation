@@ -7,7 +7,10 @@ import os
 import sys
 from dotenv import load_dotenv
 
-load_dotenv()
+env_dir = "____________________________________________" # directory which holds your .env file
+dotenv_path = os.path.join(env_dir, ".env")
+
+load_dotenv(dotenv_path)
 
 projects_dir = os.getenv("PROJECTS_DIR")
 

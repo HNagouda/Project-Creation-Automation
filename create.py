@@ -8,7 +8,10 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
-load_dotenv()
+env_dir = "____________________________________________" # directory which holds your .env file
+dotenv_path = os.path.join(env_dir, ".env")
+
+load_dotenv(dotenv_path)
 
 github_username = os.getenv("G_USERNAME")
 github_password = os.getenv("G_PASSWORD")
