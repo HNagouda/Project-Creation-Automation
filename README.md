@@ -24,13 +24,24 @@ More information can be found here: https://docs.github.com/en/github/authentica
     git clone "https://github.com/HNagouda/Project-Creation-Automation.git"
     cd Project-Creation-Automation
     pip install -r requirements.txt
+    ```
+2. Open the `.env` file in the cloned repository and enter your credentials and paths in the given spaces
+
+3. Copy the `.env` file to your scripts folder or any other folder you choose.
+   - **Note: This program could use an already existing `.env` file. If you wish to merge the variables in this particular file with your own variables, then copy the contents of this file to your `.env` file.**
+
+4. Open the `create.py` and `open.py` files and in the blank space, enter the directory in which your copied/previously-existing `.env` file is located
+    - Will be assigned to a variable called `env_dir`
+
+5. Run the below command from shell:
+    ```bash
     python create_executables.py
     ```
-2. Open the `.env` file in the cloned repository and enter your credentials
-
-3. Copy the three files; `create.exe`, `open.exe`, and `.env` into your scripts folder
+    - This will convert the `create.py` and `open.py` files to executables.
+  
+6. Copy the two files; `create.exe` and `open.exe` into your scripts folder
    
-4. Add the scripts folder to your `PATH` environment variables
+7. Add the scripts folder to your `PATH` environment variables
 
     The how-to can be found here: https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/
 
