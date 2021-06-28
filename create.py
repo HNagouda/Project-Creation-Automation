@@ -36,7 +36,7 @@ def create_repo_online():
     browser.get('https://github.com/new')
     python_button = browser.find_elements_by_xpath("//input[@name='repository[name]']")[0]
     python_button.send_keys(folderName)
-    python_button = browser.find_element_by_css_selector('button.first-in-line')
+    python_button = browser.find_element_by_css_selector('button.btn-primary.btn')
     python_button.submit()
     browser.quit()
 
