@@ -33,6 +33,9 @@ def create_repo_online():
     python_button.send_keys(github_password)
     python_button = browser.find_elements_by_xpath("//input[@name='commit']")[0]
     python_button.click()
+    browser.get('https://github.com/sessions/two-factor')
+    python_button = browser.find_elements_by_xpath("//input[@name='otp']")[0]
+    python_button.send_keys(str(input("Enter 2FA Code: ")))
     browser.get('https://github.com/new')
     python_button = browser.find_elements_by_xpath("//input[@name='repository[name]']")[0]
     python_button.send_keys(folderName)
