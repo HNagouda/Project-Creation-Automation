@@ -21,7 +21,9 @@ def create_executable(py_filename):
     shutil.rmtree('./build')
     os.remove(f"./{py_filename.split(sep='.')[0]}.spec")
 
-
-if __name__ == "__main__":
+def main():
     for file in files_to_convert:
         create_executable(str(file))
+
+if __name__ == "__main__":
+    main()
