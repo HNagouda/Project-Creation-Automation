@@ -9,19 +9,25 @@ Note: This script is generalized and can be used by anyone, anywhere
 
 import os
 import shutil
+from threading import Thread
 
-files_to_convert = ['create.py', 'open.py'] # List of all .py files to be converted
+class main():
+    def __init__(self):
+        self.files_to_convert = ['creator.py', 'open.py'] # List of all .py files to be converted
 
-def create_executable(py_filename):        
-    os.system(f"pyinstaller {py_filename} -F")
+    def create_executable(self):     
+        for py_filename in self.files_to_convert:   
+            os.system(f"pyinstaller {py_filename} -F")
 
-    shutil.copyfile(f"./dist/{py_filename.split(sep='.')[0]}.exe", f"./{py_filename.split('.')[0]}.exe")
+            shutil.copyfile(f"./dist/{py_filename.split(sep='.')[0]}.exe", f"./{py_filename.split('.')[0]}.exe")
 
-    shutil.rmtree('./dist')
-    shutil.rmtree('./build')
-    os.remove(f"./{py_filename.split(sep='.')[0]}.spec")
+            shutil.rmtree('./dist')
+            shutil.rmtree('./build')
+            os.remove(f"./{py_filename.split(sep='.')[0]}.spec")
 
+    def run_all(self):
+        if __name__ == "__main__":
+            Thread(target = self.create_executable()).start()
 
-if __name__ == "__main__":
-    for file in files_to_convert:
-        create_executable(str(file))
+run = main()
+run.run_all()

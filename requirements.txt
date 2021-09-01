@@ -1,4 +1,7 @@
+os
+sys
 shutil
-selenium
+pygithub
+threading
 pyinstaller
 python-dotenv

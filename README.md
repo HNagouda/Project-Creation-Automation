@@ -1,8 +1,8 @@
 ## Project Information
 
-A work inspired by Kalle Hallden's ProjectInitializationAutomation: https://github.com/KalleHallden/ProjectInitializationAutomation
+A work inspired by Kalle Hallden's [ProjectInitializationAutomation](https://github.com/KalleHallden/ProjectInitializationAutomation)
 
-Uses Webscraping with Selenium to initialize a GitHub Repository
+Uses the pygithub library to initialize a GitHub Repository. Copies templates (for example, a readme file) from your templates folder to the newly created repository folder.
 
 Built for Windows OS.
 
@@ -26,11 +26,12 @@ More information can be found here: https://docs.github.com/en/github/authentica
     pip install -r requirements.txt
     ```
 2. Open the `.env` file in the cloned repository and enter your credentials and paths in the given spaces
+   - **Note: If you do not have a templates folder, you may leave the `TEMPLATES_DIR` environment variable empty**
 
-3. Copy the `.env` file to your scripts folder or any other folder you choose.
+3. Copy the `.env` file to your scripts folder or any other folder you choose
    - **Note: This program could use an already existing `.env` file. If you wish to merge the variables in this particular file with your own variables, then copy the contents of this file to your `.env` file.**
 
-4. Open the `create.py` and `open.py` files and in the blank space, enter the directory in which your copied/previously-existing `.env` file is located
+4. Open the `creator.py` and `open.py` files and in the blank space, enter the directory in which your copied/previously-existing `.env` file is located
     - Will be assigned to a variable called `env_dir`
 
 5. Run the below command from shell:
@@ -51,7 +52,7 @@ More information can be found here: https://docs.github.com/en/github/authentica
 
 To create a new repository, type the following from any directory in your shell:
    ```bash
-   create <Repository-Name>
+   creator <Repository-Name>
    ```
 
 To open a folder/repository from your projects folder:
@@ -59,6 +60,7 @@ To open a folder/repository from your projects folder:
    open
    ```
 
+**Note: Feel free to rename the exe files to something of your preference!**
 ---
 
 ## Base Requirements
