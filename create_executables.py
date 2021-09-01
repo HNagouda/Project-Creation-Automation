@@ -25,18 +25,9 @@ class main():
             shutil.rmtree('./build')
             os.remove(f"./{py_filename.split(sep='.')[0]}.spec")
 
-<<<<<<< HEAD
     def run_all(self):
         if __name__ == "__main__":
             Thread(target = self.create_executable()).start()
 
 run = main()
 run.run_all()
-=======
-def main():
-    for file in files_to_convert:
-        create_executable(str(file))
-
-if __name__ == "__main__":
-    main()
->>>>>>> 2339bc672da13028aff9a64dfb13adea7c9799ad
