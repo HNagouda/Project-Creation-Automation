@@ -5,3 +5,4 @@ pygithub
 threading
 pyinstaller
 python-dotenv
+multiprocessing
