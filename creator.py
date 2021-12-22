@@ -6,12 +6,11 @@ import os
 import sys
 import shutil
 from github import Github
-from threading import Thread
 from dotenv import load_dotenv
+from multiprocessing import Process
 
-env_dir = "C:/Users/harsh/.0_Personal-Inventory" # directory which holds your .env file
-dotenv_path = os.path.join(env_dir, ".env")
-load_dotenv(dotenv_path)
+env_dir = "____________________PASTE-DIRECTORY-HERE____________________" # directory which holds your .env file
+load_dotenv(os.path.join(env_dir, ".env"))
 
 class main():
     def __init__(self):
@@ -61,10 +60,20 @@ class main():
             os.system(c)
     
     def run_all(self):
-        if __name__ == "__main__":
-            Thread(target = self.create_new_dir()).start()
-            Thread(target = self.create_repo_online()).start()
-            Thread(target = self.clone_repo_locally()).start()
+        processes = [
+            Process(target=self.create_new_dir()),
+            Process(target=self.create_repo_online()),
+            Process(target=self.copy_templates()),
+            Process(target=self.clone_repo_locally())
+        ]
+        
+        for process in processes:
+            process.start()
+           
+        for process in processes:
+            process.terminate()
+            process.join()
 
-run = main()
-run.run_all()
+            
+if __name__ == "__main__":
+    main().run_all()
