@@ -1,3 +1,5 @@
+#! SHEBANG
+
 """
 Lists all projects in the project directory
 Opens user selected project in VSCode
@@ -14,9 +16,10 @@ load_dotenv(dotenv_path)
 class main():
     def __init__(self):
         self.projects_dir = os.getenv("PROJECTS_DIR")
+        self.github_username = os.getenv("G_USERNAME")
 
     def welcome_user(self):
-        print(f"""\n=============== Welcome Back, {os.getenv("G_USERNAME")}! =============== \n""")
+        print(f"""\n=============== Welcome Back, {self.github_username}! =============== \n""")
 
     def open_project(self):
         # Displaying all the projects in the directory
@@ -36,11 +39,11 @@ class main():
         os.system(f"cd {project_path} && code .")
     
     def run_all(self):
-        if __name__ == "__main__":
             Thread(target = self.welcome_user()).start()
             Thread(target = self.open_project()).start()
 
-run = main()
-run.run_all()
+            
+if __name__ == "__main__":
+    main().run_all()
 
     
