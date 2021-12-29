@@ -1,5 +1,7 @@
 #! SHEBANG
 
+env_dir = "__PASTE-DIRECTORY-HERE__" # directory which holds your .env file
+
 """
 Lists all projects in the project directory
 Opens user selected project in VSCode
@@ -8,11 +10,11 @@ Opens user selected project in VSCode
 import os
 from dotenv import load_dotenv
 
-env_dir = "C:/Users/harsh/.0_Personal-Inventory" # directory which holds your .env file
+# Dotenv configs
 dotenv_path = os.path.join(env_dir, ".env")
 load_dotenv(dotenv_path)
 
-class main():
+class project_opener():
     def __init__(self):
         self.projects_dir = os.getenv("PROJECTS_DIR")
         self.github_username = os.getenv("G_USERNAME")
@@ -21,18 +23,26 @@ class main():
         print(f"""\n=============== Welcome Back, {self.github_username}! =============== \n""")
 
     def open_project(self):
-        # Displaying all the projects in the directory
-        print("Here are your current projects: \n")
+        # Displaying all the languages in the directory
+        print("Folders in your project directory:")
+        languages = [f.name for f in os.scandir(self.projects_dir) if f.is_dir()]
+        for i, lang in enumerate(languages):
+            print(f"\t{i}. {lang}")
 
-        projects = os.listdir(self.projects_dir)
-        for i, file in enumerate(projects):
-            if os.path.isdir(f"{self.projects_dir}/{file}"): 
-                print(f"    {i}. {file}")
+        chosen_lang_index = int(input("\nWhich language is your project using? "))
+        chosen_lang = languages[chosen_lang_index]
+        chosen_lang_path = os.path.join(self.projects_dir, chosen_lang)
+
+        print(f"\nThese are your current {chosen_lang} projects: ")
+        projects = [f.name for f in os.scandir(chosen_lang_path) if f.is_dir()]
+        for i, project in enumerate(projects):
+            if os.path.isdir(os.path.join(chosen_lang_path, project)): 
+                print(f"\t{i}. {project}")
 
         # Gathering info for opening the project
         project_number = int(input("\nWhich project (number) would you like to open? "))
         project_name = projects[project_number]
-        project_path = f"{self.projects_dir}/{project_name}"
+        project_path = os.path.join(chosen_lang_path, project_name)
         print(project_path)
 
         os.system(f"cd {project_path} && code .")
@@ -43,14 +53,11 @@ class main():
             self.open_project()
         ]
 
-        try:
-            for function in functions:
-                function()
-        except:
-            exit
-            
+        for function in functions:
+            function()
+
             
 if __name__ == "__main__":
-    main().run_all()
+    project_opener().run_all()
 
     

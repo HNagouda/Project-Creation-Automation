@@ -59,6 +59,7 @@ class repo_creator():
     def get_project_path(self):     
         if self.project_language == 'None':
             self.project_path = os.path.abspath(os.path.join(self.projects_dir, 
+                                            'No-Language',
                                             self.project_name))
 
             logger.warning(f' No project language specified. New project will be created at {self.project_path}\n')
