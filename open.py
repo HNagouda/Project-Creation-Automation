@@ -6,7 +6,6 @@ Opens user selected project in VSCode
 """
 
 import os
-from threading import Thread
 from dotenv import load_dotenv
 
 env_dir = "C:/Users/harsh/.0_Personal-Inventory" # directory which holds your .env file
@@ -39,9 +38,17 @@ class main():
         os.system(f"cd {project_path} && code .")
     
     def run_all(self):
-            Thread(target = self.welcome_user()).start()
-            Thread(target = self.open_project()).start()
+        functions = [
+            self.welcome_user(),
+            self.open_project()
+        ]
 
+        try:
+            for function in functions:
+                function()
+        except:
+            exit
+            
             
 if __name__ == "__main__":
     main().run_all()

@@ -3,7 +3,7 @@
     converts the scripts `open.py` and `create.py` into executable files
     The executables can be easily invoked through a CLI
 
-Note: This script is generalized and can be used by anyone, anywhere
+Note: This script is generalized and can be used anywhere
       Simply change the contents of the `files_to_convert" list
 """
 
@@ -11,7 +11,7 @@ import os
 import shutil
 from threading import Thread
 
-class main():
+class py_to_exe():
     def __init__(self):
         self.files_to_convert = ['creator.py', 'open.py'] # List of all .py files to be converted
 
@@ -26,8 +26,7 @@ class main():
             os.remove(f"./{py_filename.split(sep='.')[0]}.spec")
 
     def run_all(self):
-        if __name__ == "__main__":
             Thread(target = self.create_executable()).start()
 
-run = main()
-run.run_all()
+if __name__ == "__main__":
+    py_to_exe().run_all()
