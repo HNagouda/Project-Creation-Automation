@@ -1,8 +1,9 @@
 os
 sys
 shutil
+logging
+argparse
 pygithub
 threading
 pyinstaller
 python-dotenv
-multiprocessing
