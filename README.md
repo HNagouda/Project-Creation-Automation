@@ -1,5 +1,7 @@
 ## Project Information
 
+## NOTE: NO LONGER MAINTAINED
+
 A work inspired by Kalle Hallden's [ProjectInitializationAutomation](https://github.com/KalleHallden/ProjectInitializationAutomation)
 
 Uses the pygithub library to initialize a GitHub Repository. Copies templates (for example, a readme file) from your templates folder to the newly created repository folder.
